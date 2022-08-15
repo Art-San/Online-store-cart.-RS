@@ -41,7 +41,12 @@ class CartService {
   }
 
   remove(productId) {
-    delete this.cart[productId]
+    const amount = this.cart[productId].amount
+    if (amount === 1) {
+      delete this.cart[productId]
+    } else {
+      this.cart[productId].amount--
+    }
   }
 
   clear() {
@@ -49,8 +54,6 @@ class CartService {
   }
 
   getInfo() {
-    // items in cart as array
-    // total price
     const items = Object.keys(this.cart).map(id => {
       // return {
       //   id: id,
@@ -68,10 +71,6 @@ class CartService {
       return sum += item.amount * item.price
     }, 0)
 
-      // return {
-    //   items: items,
-    //   totalPrice: totalPrice
-    // }
-    return { items, totalPrice } // если ключ и значение совподают можно делать такую запись
+    return { items, totalPrice }
   }
 }

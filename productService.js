@@ -21,6 +21,4 @@ class ProductService {
       return product.id === id
     })
   }
-
 }
-
