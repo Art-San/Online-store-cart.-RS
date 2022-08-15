@@ -22,14 +22,5 @@ class ProductService {
     })
   }
 
-  toHTML() {
-      // let template = ''
-    // data.forEach(product => {
-    //   template += `<div>${product.title}</div>`
-    // }) 
-    // return template
-    const toHTMLCard = product => `<div>${product.title}</div>`
-
-    return this.products.map(toHTMLCard).join('')
-  }
 }
+
